@@ -13,14 +13,9 @@
             </div>
             <div class="col-lg-4 d-flex justify-content-center">
                 <ul class="list-group list-group-flush flex-row  w-100 justify-content-center" style="--bs-list-group-bg: trasparent">
-{{--                    <li class="list-group-item border border-0">--}}
-{{--                        <a class="contact text-white" href="tel:0322140314" style="--icon: '\F5C1'">--}}
-{{--                            <span>(032) 2-114-514</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
                     <li class="list-group-item border border-0">
-                        <a class="contact text-white" href="mailto:polrofgldaniedu@gmail.com"  style="--icon: '\f32f'">
-                            <span>gpress7777@gmail.com</span>
+                        <a class="contact text-white" href="mailto:gpress777@gmail.com"  style="--icon: '\f32f'">
+                            <span>gpress777@gmail.com</span>
                         </a>
                     </li>
                 </ul>
