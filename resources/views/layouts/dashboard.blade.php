@@ -38,7 +38,7 @@
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-<script src="https://cdn.tiny.cloud/1/c7xqldlwm1ui22h9d8sv6d76g6tf1j562eq7ule4e6u02gca/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/yu4ov2g7qn4hup219i0ahf4wzwcsvtkns120joev89fik6t2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 @yield('scripts')
 </body>
 </html>
