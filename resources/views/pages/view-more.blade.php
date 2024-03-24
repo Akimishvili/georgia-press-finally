@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'View More')
+@section('title', $article -> title -> $language)
 
 @section('styles')
     <style>

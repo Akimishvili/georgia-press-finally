@@ -35,13 +35,12 @@ class BlockController extends Controller
     {
         $data = $request->validated();
         $storeDate = [
-            'article_id' => $data['article_id']
+            'article_id' => $data['article_id'],
+            'title' => null,
+            'sub_title' => null,
+            'image' => null,
+            'video' => null
         ];
-        $title = null;
-        $sub_title = null;
-        $description = null;
-        $imageName = null;
-        $video = null;
 
         /* TODO: Check the filled fields */
         if($request -> filled('title_ka')){
@@ -63,7 +62,7 @@ class BlockController extends Controller
         if($request -> hasFile('image')){
             $image = $request -> file('image');
             $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
-            $uploadPath = 'images/articles/blocks/'; //TODO: Set Upload Path
+            $uploadPath = 'images/articles/blocks'; //TODO: Set Upload Path
             $isUploaded = $image->move(public_path($uploadPath), $imageName); //TODO: Store File in Public Directory
             $storeDate  = [...$storeDate, 'image' => $imageName];
             if(!$isUploaded) return redirect() -> back() -> with('warning', 'სურათის ატვირთვა ვერ მოხერხდა, სცადეთ დავიდან');

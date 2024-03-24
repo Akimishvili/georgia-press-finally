@@ -15,12 +15,13 @@
 }
 
 html, body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 body[data-language="ka"] {
-    font-family: 'algeti', sans-serif;
+    font-family: 'algeti', sans-serif !important;
 }
+
 /* TODO: color classes */
 .bg-light-blue {
     background-color:  hsla(var(--light-blue-hue), var(--light-blue-saturation), var(--light-blue-lightness), var(--light-blue-alfa));
