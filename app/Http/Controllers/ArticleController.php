@@ -44,7 +44,7 @@ class ArticleController extends Controller
         $data = $request->validated();
         $image = $request -> image;
         $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
-        $uploadPath = 'images/articles/'; //TODO: Set Upload Path
+        $uploadPath = 'images/articles'; //TODO: Set Upload Path
         $image->move(public_path($uploadPath), $imageName); //TODO: Store File in Public Directory
         $title = ["ka" => $data['title_ka'], "en" => $data['title_en'], "ru" => $data['title_ru']];
         $description = ["ka" => $data['description_ka'], "en" => $data['description_en'], "ru" => $data['description_ru']];
