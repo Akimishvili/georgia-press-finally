@@ -301,7 +301,7 @@
             e.setAttribute('disabled', 'disabled')
             deleteSectionBtn.removeAttribute('disabled')
             $('.textarea-form-field').summernote({
-                placeholder: 'Hello Bootstrap 5',
+                placeholder: 'Content Here',
                 tabsize: 2,
                 height: 300,
                 toolbar: [
@@ -324,7 +324,7 @@
             addSectionBtn.removeAttribute('disabled')
         }
         $('.textarea-form-field').summernote({
-            placeholder: 'Hello Bootstrap 5',
+            placeholder: 'Content Here',
             tabsize: 2,
             height: 300,
             toolbar: [
