@@ -98,7 +98,7 @@ class ArticleController extends Controller
         if($request->hasFile('image')){
             $image = $request -> image;
             $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
-            $uploadPath = 'images/articles/'; // TODO: Set Upload Path
+            $uploadPath = 'images/articles'; // TODO: Set Upload Path
             $isUploaded = $image->move(public_path($uploadPath), $imageName); // TODO: Store File in Public Directory
             if(!$isUploaded) return redirect() -> back()-> with('warning', 'სურათის ატვირთვა ვერ მოხერხდა, სცადეთ თავიდან');
         }
