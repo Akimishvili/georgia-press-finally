@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,7 +22,7 @@ class AdminController extends Controller
     public function login()
     {
         if(Session::has('admin')) return redirect() -> route('admin.dashboard.page');
-        return view('admin.login');
+        return view('admin.login', ['language' => App::getLocale()]);
     }
 
     public function auth(Request $request)
