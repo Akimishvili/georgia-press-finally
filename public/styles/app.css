@@ -278,3 +278,6 @@
     right: 0;
     border-radius: 0 5px 0 5px;
 }
+.note-editable{
+    background-color: white;
+}

@@ -37,7 +37,7 @@
                              <li class="list-group-item language-item @if(  app() -> getLocale() == "en") d-none @endif">
                                  <a class="list-group-link  dropdown-item-language d-flex gap-2 align-items-center" href="{{ Str::replaceFirst( app()->getLocale(), 'en', request()->url() ) }}">
                                      <span class="language-label">
-                                         <img src="{{ asset('images/flags/flag-en.png')}}" class="response-img lang" alt="en"/>
+                                         <img src="{{ asset('images/flags/united-kingdom.png')}}" class="response-img lang" alt="en"/>
                                      </span>
                                      <span class="language-label text-uppercase">
                                          EN

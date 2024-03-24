@@ -1,5 +1,8 @@
 @extends('layouts.dashboard')
 @section('title', 'სტატიის რედაქტირება')
+@section('styles')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet" />
+@endsection
 @section('main')
     @session('success')
     <div class="alert alert-success" role="alert"  x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
@@ -121,10 +124,19 @@
 @section('scripts')
     <script>
 
-        tinymce.init({
-            selector: '.textarea-form-field', // Replace this CSS selector to match the placeholder element for TinyMCE
-            plugins: 'code table lists',
-            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table',
+        $('.textarea-form-field').summernote({
+            placeholder: 'Hello Bootstrap 5',
+            tabsize: 2,
+            height: 300,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
         });
     </script>
 @endsection

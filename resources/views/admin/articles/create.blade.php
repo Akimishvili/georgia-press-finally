@@ -1,6 +1,18 @@
 @extends('layouts.dashboard')
 @section('title', 'სტატიის შექმნა')
+@section('styles')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet" />
+@endsection
 @section('main')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-12">
             <form method="POST"   action="{{ route('articles.store', ['language' => app()->getLocale()]) }}" enctype="multipart/form-data">
@@ -17,9 +29,15 @@
                     <div class="tab-pane fade pt-2 show active" id="ka-tab-content" role="tabpanel" aria-labelledby="ka-tab" tabindex="0">
                         <div class="mb-3">
                             <input type="text" class="form-control" name="title_ka" placeholder="სათაური" required/>
+                            @error('title_ka')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
-                            <textarea  class="form-control textarea-form-field" rows="5" name="description_ka" placeholder="აღწერა" required></textarea>
+                            <textarea  class="form-control textarea-form-field bg-white" rows="5" name="description_ka" placeholder="აღწერა" required></textarea>
+                            @error('description_ka')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <!-- tab ka-->
@@ -28,9 +46,15 @@
                     <div class="tab-pane pt-2 fade" id="en-tab-content" role="tabpanel" aria-labelledby="en-tab" tabindex="0">
                         <div class="mb-3">
                             <input type="text" class="form-control" name="title_en" placeholder="Title" required/>
+                            @error('title_en')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
-                            <textarea  class="form-control textarea-form-field" rows="5" name="description_en" placeholder="description" required></textarea>
+                            <textarea  class="form-control textarea-form-field bg-white" rows="5" name="description_en" placeholder="description" required></textarea>
+                            @error('description_en')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <!-- tab en-->
@@ -39,15 +63,24 @@
                     <div class="tab-pane pt-2 fade" id="ru-tab-content" role="tabpanel" aria-labelledby="ru-tab" tabindex="0">
                         <div class="mb-3">
                             <input type="text" class="form-control" name="title_ru" placeholder="заголовок" required/>
+                            @error('title_ru')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <textarea  class="form-control textarea-form-field" rows="5" name="description_ru" placeholder="Описание" required></textarea>
+                            @error('description_ru')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <!-- tab ru-->
                 </div>
                 <div class="mb-3">
                     <input type="file" class="form-control"  name="image" required/>
+                    @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">დამატება</button>
             </form>
@@ -57,10 +90,20 @@
 
 @section('scripts')
     <script>
-        tinymce.init({
-            selector: '.textarea-form-field', // Replace this CSS selector to match the placeholder element for TinyMCE
-            plugins: 'code table lists',
-            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
+
+        $('.textarea-form-field').summernote({
+            placeholder: 'Hello Bootstrap 5',
+            tabsize: 2,
+            height: 300,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
         });
     </script>
 @endsection

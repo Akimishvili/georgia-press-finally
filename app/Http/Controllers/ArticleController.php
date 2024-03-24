@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -51,6 +52,7 @@ class ArticleController extends Controller
             'title' => $title,
             'description' => $description,
             'image' => $imageName,
+            'uuid' => Str::uuid()->toString(),
             'date' => now()
         ]);
         return redirect() -> route('articles.index', ['language' => App::getLocale()]) -> with('success', 'სტატია შეიქმნა წარმატებით');
@@ -66,7 +68,7 @@ class ArticleController extends Controller
         $article -> increment('view');
         return view('pages.view-more', [
             'language' => App::getLocale(),
-            'article' => $article -> load('images', 'blocks', 'docs'),
+            'article' => $article -> load('blocks', 'docs'),
             'lasts' => Article::orderBy('id', 'desc')->take(3)->get(),
             'categories' => Category::all()
         ]);

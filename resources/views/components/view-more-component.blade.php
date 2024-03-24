@@ -6,7 +6,7 @@
     </div>
     <div class="card-body">
         <h2 class="card-title truncate">{{ $article -> title -> $language }}</h2>
-        <p class="card-text line-clamp">{{ $article -> description -> $language }}</p>
+        <div class="card-text line-clamp">{!! $article -> description -> $language !!}</div>
     </div>
 </div>
 

@@ -38,31 +38,31 @@ class PageController extends Controller
 //        $media = $articles->filter(fn($article) => $article->categories->contains('id', $mediaCategory -> id));
 
         //TODO: economy category with articles
-        $economyCategory = $categories -> first(fn($category) => $category -> id == 4);
+        $economyCategory = $categories -> first(fn($category) => $category -> id == 3);
         $economy = $articles->filter(fn($article) => $article->categories->contains('id', $economyCategory -> id));
 
         //TODO: green category with articles
-        $greenCategory = $categories -> first(fn($category) => $category -> id == 5);
+        $greenCategory = $categories -> first(fn($category) => $category -> id == 4);
         $green = $articles->filter(fn($article) => $article->categories->contains('id', $greenCategory -> id));
 
         //TODO: animal category with articles
-        $animalCategory = $categories -> first(fn($category) => $category -> id == 6);
+        $animalCategory = $categories -> first(fn($category) => $category -> id == 5);
         $animal = $articles->filter(fn($article) => $article->categories->contains('id', $animalCategory -> id));
 
         //TODO: tourism category with articles
-        $tourismCategory = $categories -> first(fn($category) => $category -> id == 7);
+        $tourismCategory = $categories -> first(fn($category) => $category -> id == 6);
         $tourism = $articles->filter(fn($article) => $article->categories->contains('id', $tourismCategory -> id));
 
         //TODO: sport category with articles
-        $sportCategory = $categories -> first(fn($category) => $category -> id == 8);
+        $sportCategory = $categories -> first(fn($category) => $category -> id == 7);
         $sport = $articles->filter(fn($article) => $article->categories->contains('id', $sportCategory -> id));
 
         //TODO: youth category with articles
-        $youthCategory = $categories -> first(fn($category) => $category -> id == 9);
+        $youthCategory = $categories -> first(fn($category) => $category -> id == 8);
         $youth = $articles->filter(fn($article) => $article->categories->contains('id', $youthCategory -> id));
 
         //TODO: culture category with articles
-        $cultureCategory = $categories -> first(fn($category) => $category -> id == 10);
+        $cultureCategory = $categories -> first(fn($category) => $category -> id == 9);
         $culture = $articles->filter(fn($article) => $article->categories->contains('id', $cultureCategory -> id));
 
         return view('pages.home',[
