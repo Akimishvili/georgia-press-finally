@@ -21,7 +21,7 @@ class AdminController extends Controller
     }
     public function login()
     {
-        if(Session::has('admin')) return redirect() -> route('admin.dashboard.page');
+        if(Session::has('admin')) return redirect() -> route('admin.dashboard.page', ['language' => app() -> getLocale()]);
         return view('admin.login', ['language' => App::getLocale()]);
     }
 

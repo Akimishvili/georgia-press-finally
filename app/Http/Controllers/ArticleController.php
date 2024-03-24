@@ -38,8 +38,9 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreArticleRequest $request)
+    public function store(Request $request)
     {
+        return 'ok';
         $data = $request->validated();
         $image = $request -> image;
         $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
