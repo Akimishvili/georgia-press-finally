@@ -281,3 +281,7 @@
 .note-editable{
     background-color: white;
 }
+.category-item-image{
+    height: 100% !important;
+    object-fit: cover;
+}
