@@ -115,6 +115,7 @@
 }
 .logo{
     width: 125px;
+    z-index: 333;
 }
 .category-group{
     border: 1px solid var(--dark-blue);

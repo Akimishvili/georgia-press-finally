@@ -18,7 +18,7 @@
             <div class="row justify-content-between">
                 <div class="col-md-7 mb-4">
                     <main class="main border p-4 rounded">
-                        <div class="container">
+                        <div class="container px-0">
                             <x-view-more-component :article="$article" :language="$language" />
                             @foreach($article -> blocks as $block)
                                 <x-block-component :block="$block" :language="$language" />

@@ -1,5 +1,5 @@
 const categoryItemSlide = {
-    slidesPerView: 2,
+    slidesPerView: 1,
     speed: 1000,
     autoplay: {
         delay: 3000,
@@ -10,6 +10,9 @@ const categoryItemSlide = {
         clickable: true,
     },
     breakpoints: {
+        800: {
+            slidesPerView:1
+        },
         1200: {
             slidesPerView: 2
         },

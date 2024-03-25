@@ -17,6 +17,6 @@
     <div class="card-body">
         <h5 class="card-title truncate fs-4" data-language="{{$language}}">{{ $article -> title -> $language }}</h5>
         <div class="card-text line-clamp" data-language="{{$language}}">{!!  $article -> description -> $language !!}</div>
-        <a href="{{ route('articles.show',['language' => app() -> getLocale(),'article' => $article]) }}" class="btn bg-dark-blue text-light-blue more float-end" data-language="{{$language}}">{{__('static.page.more')}}</a>
+        <a href="{{ route('articles.show',['language' => app() -> getLocale(),'article' => $article]) }}" class="btn bg-dark-blue text-light-blue more float-end mt-2" data-language="{{$language}}">{{__('static.page.more')}}</a>
     </div>
 </div>
