@@ -112,7 +112,7 @@
                             <input type="text" class="form-control" name="title_ka" placeholder="სათაური" value="{{ $article -> title -> ka }}" required/>
                         </div>
                         <div class="mb-3">
-                            <textarea  class="form-control textarea-form-field" rows="5" name="description_ka" placeholder="აღწერა" required>{{ $article -> description -> ka }}</textarea>
+                            <textarea  class="form-control textarea-form-field" rows="5" name="description_ka" placeholder="აღწერა">{{ $article -> description -> ka }}</textarea>
                         </div>
                     </div>
                     <!-- tab ka-->
@@ -123,7 +123,7 @@
                             <input type="text" class="form-control" name="title_en" placeholder="Title" value="{{ $article -> title -> en }}" required/>
                         </div>
                         <div class="mb-3">
-                            <textarea  class="form-control textarea-form-field" rows="5" name="description_en" placeholder="description" required>{{ $article -> description -> en }}</textarea>
+                            <textarea  class="form-control textarea-form-field" rows="5" name="description_en" placeholder="description">{{ $article -> description -> en }}</textarea>
                         </div>
                     </div>
                     <!-- tab en-->
@@ -134,7 +134,7 @@
                             <input type="text" class="form-control" name="title_ru" placeholder="заголовок" value="{{ $article -> title -> ru }}" required/>
                         </div>
                         <div class="mb-3">
-                            <textarea  class="form-control textarea-form-field" rows="5" name="description_ru" placeholder="Описание" required>{{ $article -> description -> ru }}</textarea>
+                            <textarea  class="form-control textarea-form-field" rows="5" name="description_ru" placeholder="Описание">{{ $article -> description -> ru }}</textarea>
                         </div>
                     </div>
                     <!-- tab ru-->

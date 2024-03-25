@@ -88,7 +88,7 @@ class PageController extends Controller
             'youth' => $youth,
             'cultureCategory' => $cultureCategory,
             'culture' => $culture,
-            'blocks' => Block::whereNotNull('video')->get()
+            'blocks' => Block::whereNotNull('video')->with('article')->get()
         ]);
     }
 
@@ -115,7 +115,7 @@ class PageController extends Controller
 
     public function videos(Block $block)
     {
-        $blocks = Block::whereNotNull('video') -> paginate(12);
+        $blocks = Block::whereNotNull('video') ->with('article')-> paginate(12);
         return view('pages.video', [
             'language' => App::getLocale(),
             'blocks' => $blocks

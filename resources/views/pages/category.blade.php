@@ -15,7 +15,7 @@
 @section('main')
     <div class="container-fluid">
         <div class="container">
-            <h2 class="text-light-blue py-4 text-uppercase">{{ __('static.page.category') }} / {{ $category -> title -> $language }}</h2>
+            <h2 class="text-light-blue py-4 text-uppercase" data-language="{{$language}}">{{ __('static.page.category') }} / {{ $category -> title -> $language }}</h2>
                 <div class="row">
                     @forelse($category -> articles as $article)
                         <div class="col-lg-4 col-md-6 mb-4">

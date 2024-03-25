@@ -34,7 +34,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <textarea  class="form-control textarea-form-field bg-white" rows="5" name="description_ka" placeholder="აღწერა" required></textarea>
+                            <textarea  class="form-control textarea-form-field bg-white" rows="5" name="description_ka" placeholder="აღწერა"></textarea>
                             @error('description_ka')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -51,7 +51,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <textarea  class="form-control textarea-form-field bg-white" rows="5" name="description_en" placeholder="description" required></textarea>
+                            <textarea  class="form-control textarea-form-field bg-white" rows="5" name="description_en" placeholder="description"></textarea>
                             @error('description_en')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -68,7 +68,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <textarea  class="form-control textarea-form-field" rows="5" name="description_ru" placeholder="Описание" required></textarea>
+                            <textarea  class="form-control textarea-form-field" rows="5" name="description_ru" placeholder="Описание"></textarea>
                             @error('description_ru')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -91,11 +91,11 @@
 @section('scripts')
     <script>
 
-        $('.textarea-form-field').summernote({
-            placeholder: 'Content Here',
-            tabsize: 2,
-            height: 300
-        });
+       $('.textarea-form-field').summernote({
+           placeholder: 'Content Here',
+           tabsize: 2,
+           height: 300
+       });
     </script>
 @endsection
 

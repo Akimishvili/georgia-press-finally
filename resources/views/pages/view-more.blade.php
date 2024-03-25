@@ -28,7 +28,7 @@
                             <div class="container doc-container p-4 border rounded" data-content="document-container">
                                 <div class="row align-items-center mb-3">
                                     <div class="col-10">
-                                        <h2>{{ $doc -> title -> $language }}</h2>
+                                        <h2 data-language="{{$language}}">{{ $doc -> title -> $language }}</h2>
                                     </div>
                                     <div class="col-2 d-flex justify-content-end">
                                         <a class="d-block" target="_blank" href="{{ asset('docs/article_' . $article -> id .'/' .$doc -> url) }}">
@@ -44,7 +44,7 @@
                     </main>
                 </div>
                 <div class="col-md-4 assist">
-                    <h4 class="p-4">{{ __('static.section.assist.title') }}</h4>
+                    <h4 class="p-4" data-language="{{$language}}">{{ __('static.section.assist.title') }}</h4>
                     <div class="assist d-flex flex-column gap-4">
                         @foreach($lasts as $article)
                             <div class="col">

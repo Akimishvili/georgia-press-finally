@@ -14,7 +14,7 @@
             <div class="col-lg-10">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h2 class="geo-press-slogan px-md-0 px-3">ჯეორჯიაპრეს</h2>
+                        <h2 class="geo-press-slogan px-md-0 px-3" data-language="{{$language}}">ჯეორჯიაპრეს</h2>
                     </div>
                     <div class="col">
                         <form class="d-flex" role="search" action="{{ route('home.page', ['language' => app()->getLocale()])}}">
@@ -62,11 +62,11 @@
                           <div class="collapse navbar-collapse" id="navbarNav">
                               <ul class="navbar-nav w-100 justify-content-between">
                                   <li class="nav-item">
-                                      <a class="nav-link  nav-category  position-relative decorated-line text-uppercase" href="{{ route('home.page', ['language' => app() -> getLocale()]) }}">{{ __('static.nav.home') }}</a>
+                                      <a class="nav-link  nav-category  position-relative decorated-line text-uppercase" href="{{ route('home.page', ['language' => app() -> getLocale()]) }}" data-language="{{$language}}">{{ __('static.nav.home') }} </a>
                                   </li>
                                   @foreach($categories as $category)
                                       <li class="nav-item">
-                                          <a class="nav-link  nav-category position-relative decorated-line text-uppercase text-focus" href="{{  route('category.page',['language' => app() -> getLocale(), 'category' => $category->id]) }}">{{ $category -> title -> $language }}</a>
+                                          <a class="nav-link  nav-category position-relative decorated-line text-uppercase text-focus" href="{{  route('category.page',['language' => app() -> getLocale(), 'category' => $category->id]) }}" data-language="{{$language}}">{{ $category -> title -> $language }}</a>
                                       </li>
                                   @endforeach
                                   <li class="nav-item dropdown position-relative decorated-line">
@@ -77,7 +77,7 @@
                                           @foreach( $sections as $section)
                                               @if( in_array($language, $section -> languages))
                                                   <li>
-                                                      <a class="dropdown-item dropdown-item-press px-4 position-relative animated-line text-uppercase" href="{{ route('section.page', ['language' => app()->getLocale(), 'section' => $section->id]) }}">
+                                                      <a class="dropdown-item dropdown-item-press px-4 position-relative animated-line text-uppercase" href="{{ route('section.page', ['language' => app()->getLocale(), 'section' => $section->id]) }}" data-language="{{$language}}">
                                                           {{ $section->title->$language }}
                                                       </a>
                                                   </li>
@@ -86,7 +86,7 @@
                                       </ul>
                                   </li>
                                   <li class="nav-item">
-                                      <a class="nav-link nav-category position-relative decorated-line text-uppercase" href="{{ route('video.page', ['language' => app() -> getLocale()]) }}">{{ __('static.nav.video') }}</a>
+                                      <a class="nav-link nav-category position-relative decorated-line text-uppercase" href="{{ route('video.page', ['language' => app() -> getLocale()]) }}" data-language="{{$language}}">{{ __('static.nav.video') }}</a>
                                   </li>
                               </ul>
                           </div>

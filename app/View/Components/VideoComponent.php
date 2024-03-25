@@ -9,18 +9,12 @@ use Illuminate\View\Component;
 class VideoComponent extends Component
 {
     public object | null $videoTitle;
-    public object $defaultTitle;
     /**
      * Create a new component instance.
      */
-    public function __construct(public object $block, public string $language)
+    public function __construct(public object $block, public  object $article, public string $language)
     {
-        $this -> defaultTitle = (object)[
-            "ka" => "სტატიის ვიდეო კონტენტი",
-            "en" =>  "Video Content Of Article",
-            "ru" => "Видеоконтент статьи"
-        ];
-        $this -> videoTitle = $block -> title  ??  $block -> sub_title ?? $this -> defaultTitle;
+        $this -> videoTitle = $block -> title  ??  $block -> sub_title ??  $article -> title;
     }
 
     /**

@@ -5,8 +5,8 @@
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title truncate">{{ $item -> title -> $language }}</h5>
-                <div class="card-text line-clamp">{!! $item -> description -> $language !!}</div>
+                <h5 class="card-title truncate" data-language="{{$language}}">{{ $item -> title -> $language }}</h5>
+                <div class="card-text line-clamp" data-language="{{$language}}">{!! $item -> description -> $language !!}</div>
             </div>
         </div>
     </div>

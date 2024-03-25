@@ -15,11 +15,11 @@
 @section('main')
     <div class="container-fluid">
         <div class="container">
-            <h2 class="text-light-blue py-4 text-uppercase"> {{ __('static.nav.video') }}</h2>
+            <h2 class="text-light-blue py-4 text-uppercase" data-language="{{$language}}"> {{ __('static.nav.video') }}</h2>
             <div class="row justify-content-center">
                 @foreach($blocks  as  $block)
                     <div class="col-lg-4 col-md-6 mb-4">
-                        <x-video-component :block="$block" :language="$language"/>
+                        <x-video-component :block="$block" :language="$language" :article="$block -> article"/>
                     </div>
                 @endforeach
             </div>

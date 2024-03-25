@@ -5,6 +5,6 @@
         </div>
     </div>
     <div class="card-body ">
-        <h4 class="truncate">{{ $videoTitle -> $language}}</h4>
+        <h4 class="truncate" data-language="{{$language}}">{{ $videoTitle -> $language}}</h4>
     </div>
 </div>

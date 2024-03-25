@@ -5,11 +5,11 @@
     </button>
     <ul class="list-group list-group-flush">
         <li class="nav-item">
-            <a class="nav-link  nav-category  position-relative animated-line text-uppercase d-block px-5 py-2" href="{{ route('home.page',['language' => app() -> getLocale()]) }}">{{ __('static.nav.home') }}</a>
+            <a class="nav-link  nav-category  position-relative animated-line text-uppercase d-block px-5 py-2" href="{{ route('home.page',['language' => app() -> getLocale()]) }}" data-language="{{$language}}">{{ __('static.nav.home') }}</a>
         </li>
         @foreach($categories as $category)
             <li class="nav-item">
-                <a class="nav-link  nav-category position-relative animated-line text-uppercase text-focus d-block px-5 py-2" href="{{  route('category.page',['language' => app() -> getLocale(), 'category' => $category->id]) }}">{{ $category -> title -> $language }}</a>
+                <a class="nav-link  nav-category position-relative animated-line text-uppercase text-focus d-block px-5 py-2" href="{{  route('category.page',['language' => app() -> getLocale(), 'category' => $category->id]) }}" data-language="{{$language}}">{{ $category -> title -> $language }}</a>
             </li>
         @endforeach
         <li class="nav-item">
@@ -21,7 +21,7 @@
                     @foreach( $sections as $section)
                         @if( in_array($language, $section -> languages))
                             <li>
-                                <a class="nav-link  nav-category position-relative animated-line text-uppercase text-focus d-block px-5 py-2" href="{{ route('section.page', ['language' => app()->getLocale(), 'section' => $section->id]) }}">
+                                <a class="nav-link  nav-category position-relative animated-line text-uppercase text-focus d-block px-5 py-2" href="{{ route('section.page', ['language' => app()->getLocale(), 'section' => $section->id]) }}" data-language="{{$language}}">
                                     {{ $section->title->$language }}
                                 </a>
                             </li>
@@ -31,7 +31,7 @@
             </div>
         </li>
         <li class="nav-item ">
-            <a class="nav-link nav-category position-relative animated-line text-uppercase d-block px-5 py-2" href="{{ route('video.page', ['language' => app() -> getLocale()]) }}">{{ __('static.nav.video') }}</a>
+            <a class="nav-link nav-category position-relative animated-line text-uppercase d-block px-5 py-2" href="{{ route('video.page', ['language' => app() -> getLocale()]) }}" data-language="{{$language}}">{{ __('static.nav.video') }}</a>
         </li>
     </ul>
 </aside>

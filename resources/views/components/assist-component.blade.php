@@ -5,6 +5,6 @@
         </a>
     </div>
     <div class="card-body">
-        <p class="card-text truncate">{{ $article -> title -> $language }}</p>
+        <p class="card-text truncate" data-language="{{$language}}">{{ $article -> title -> $language }}</p>
     </div>
 </div>

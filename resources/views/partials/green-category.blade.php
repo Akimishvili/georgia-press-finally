@@ -1,7 +1,7 @@
 @if( count($green) )
     <div class="container-fluid pt-4">
         <div class="container">
-            <h2 class="fw-bold text-dark-blue">{{ $greenCategory -> title -> $language }}</h2>
+            <h2 class="fw-bold text-dark-blue" data-language="{{$language}}">{{ $greenCategory -> title -> $language }}</h2>
             <div class="swiper categories">
                 <div class="swiper-wrapper">
                     @foreach( $green as $item )
