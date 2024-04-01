@@ -8,6 +8,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 <link rel="shortcut icon" href="{{ asset('images/themes/georgia-press-icon.jpg') }}" type="image/x-icon" />
-<link rel="stylesheet" href="{{ asset('styles/app.css') }}" />
+<link rel="stylesheet" href="{{ asset('styles/app.css?date=01/04/2024') }}" />
 @yield('styles')
 <title>@yield('title')</title>

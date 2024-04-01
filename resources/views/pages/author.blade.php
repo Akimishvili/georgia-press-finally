@@ -15,8 +15,13 @@
 
 @section('main')
     <div class="container mt-3">
-        <h3 class="text-light-blue text-uppercase">
-            {{ __('static.page.all_articles') }} / {{ join(' ', [$author -> first_name -> $language, $author -> last_name -> $language])}}
+        <h3 class="text-light-blue text-uppercase fs-4">
+            <span >
+                  {{ __('static.page.all_articles') }} /
+            </span>
+            <span class="fw-bold">
+                {{ join(' ', [$author -> first_name -> $language, $author -> last_name -> $language])}}
+            </span>
         </h3>
     </div>
     @include('partials.articles',  ['mt' => 'mt-3'])

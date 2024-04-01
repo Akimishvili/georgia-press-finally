@@ -11,7 +11,7 @@ class ViewMoreComponent extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public object $article, public string $language)
+    public function __construct(public object $article, public string $language, public object $author)
     {
         //
     }

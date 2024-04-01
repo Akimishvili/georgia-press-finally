@@ -14,7 +14,7 @@
             <div class="col-lg-10">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h2 class="geo-press-slogan px-md-0 px-3" data-language="{{$language}}">ჯეორჯიაპრეს</h2>
+                        <h2 class="geo-press-slogan px-md-0 px-3" data-language="{{$language}}" data-content="{{$language == 'ka' ? 'ka' : 'none'}}">ჯეორჯიაპრეს</h2>
                     </div>
                     <div class="col">
                         <form class="d-flex" role="search" action="{{ route('home.page', ['language' => app()->getLocale()])}}">
