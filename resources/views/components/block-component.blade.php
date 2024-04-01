@@ -6,7 +6,7 @@
             </a>
     </div>
     @endif
-    <div class="card-body card-block-body">
+    <div class="card-body card-block-body" data-content="{{ $block -> title ?? $block -> sub_title ?? $block -> description ?? 'none'}}">
         @if($block -> title)
             <h3 class="card-block-title" data-language="{{$language}}">{{$block -> title -> $language}}</h3>
         @endif

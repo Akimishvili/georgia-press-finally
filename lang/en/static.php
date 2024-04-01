@@ -41,11 +41,12 @@ return [
         ],
         'more' => 'View More',
         'category' => 'Category',
-        'notFound' => 'No Articles Found'
+        'notFound' => 'No Articles Found',
+        'all_articles' => 'All Articles'
     ],
     'meta' => [
-        'description' => 'gpress',
-        'keywords' => 'culture, sport, news, world'
+        'description' => 'An informative journalistic website delivering concise news, analysis, and features, keeping readers informed and engaged.',
+        'keywords' => 'articles, posts, news, media'
     ],
     'form' => [
         'email' => 'E-mail',

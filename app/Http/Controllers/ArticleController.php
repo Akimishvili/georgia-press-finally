@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Models\Article;
+use App\Models\Author;
 use App\Models\Category;
 use App\Models\Section;
 use Illuminate\Http\Request;
@@ -64,13 +65,14 @@ class ArticleController extends Controller
     public function show(string $language, Article $article)
     {
 //        return  $article -> load('images', 'blocks');
-
         $article -> increment('view');
         return view('pages.view-more', [
             'language' => App::getLocale(),
-            'article' => $article -> load('blocks', 'docs'),
+            'article' => $article -> load('blocks', 'docs', 'authors'),
             'lasts' => Article::orderBy('id', 'desc')->take(3)->get(),
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'author' => $article -> authors() -> first()
+
         ]);
     }
 
@@ -79,12 +81,14 @@ class ArticleController extends Controller
      */
     public function edit(string $language, Article $article)
     {
+
         return view('admin.articles.edit', [
             'language' => App::getLocale(),
-            'article' => $article -> load('blocks', 'categories'),
+            'article' => $article -> load('blocks', 'categories', 'authors'),
             'routeName' => Route::currentRouteName(),
             'categories' => Category::all(),
-            'sections' => Section::all()
+            'sections' => Section::all(),
+            'authors' => Author::all()
         ]);
     }
 
@@ -145,5 +149,15 @@ class ArticleController extends Controller
          $article->categories()->detach($category);
          return redirect() -> back() -> with('success', 'category deleted successfully');
     }
-
+    public function setArticleAuthor(Request $request, string $language, Article $article)
+    {
+        $validator = Validator::make($request->all(), [
+            'author_id' => 'required|exists:authors,id',
+        ]);
+        if ($validator->fails()) {
+            return redirect() -> back() -> with('error', 'ავტორი არ არის არჩეული');
+        }
+        $article->authors()->attach($request -> author_id);
+        return redirect() -> back() -> with('success', 'ავტორი წარმატებით დამეატა');
+    }
 }

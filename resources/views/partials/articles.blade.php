@@ -1,4 +1,4 @@
-<div class="container-fluid mt-5">
+<div class="container-fluid {{$mt}}">
     <div class="container">
         <div class="row">
             @foreach($articles as $article)

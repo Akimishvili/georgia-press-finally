@@ -14,6 +14,34 @@
         {{ $value }}
     </div>
     @endsession
+    <!-- ✨ TODO: ADD Category  ✨-->
+    <div class="container categories border border-2 bg-white p-2 rounded mb-4" data-content="categories">
+        <h2 class="mb-3 text-dark-blue">ავტორის დამატება</h2>
+        @session('error')
+        <div class="alert alert-danger" role="alert"  x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
+            {{ $value }}
+        </div>
+        @endsession
+        <div class="row">
+            <div class="col-12">
+                <form method="post" action="{{ route('setArticleAuthor', ['language' => app()->getLocale(),'article' =>  $article]) }}">
+                    @csrf
+                    <div class="row gap-2">
+                        <div class="col-12">
+                            <select class="form-select" aria-label="Default select example" name="author_id">
+                                <option selected disabled>ავტორების სია</option>
+                                @foreach($authors as $author)
+                                 <option value="{{ $author -> id }}"  @selected($article -> authors->contains($author -> id))>{{ join(' ', [$author -> first_name -> ka, $author -> last_name -> ka ]) }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">სტატიისთვის ავტორის მინიჭება</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ✨ TODO: ADD Category  ✨-->
     <div class="container categories border border-2 bg-white p-2 rounded mb-4" data-content="categories">
         <h2 class="mb-3 text-dark-blue">კატეგორიის დამატება</h2>
         @session('error')
@@ -48,6 +76,7 @@
             </div>
         </div>
     </div>
+    <!-- ✨ TODO: ADD Document  ✨-->
     <div class="container  border border-2 bg-primary p-2 rounded mb-4" data-content="docs">
         <h2 class="mb-3 text-dark-blue">დოკუმენტის დამატება</h2>
         <form method="POST"  action="{{ route('docs.store', ['language' => app()->getLocale()]) }}" enctype="multipart/form-data">
@@ -93,6 +122,7 @@
             </div>
         </form>
     </div>
+    <!-- ✨ TODO: Update Article   ✨-->
     <div class="row" data-content="update post">
         <div class="col-md-12">
             <form method="POST"   action="{{ route('articles.update', ['language' => app()->getLocale(),'article' =>  $article]) }}" enctype="multipart/form-data">

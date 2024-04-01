@@ -1,7 +1,7 @@
 @if( count($social) )
     <div class="container-fluid pt-4">
         <div class="container">
-            <h2 class="fw-bold text-dark-blue" data-language="{{$language}}">{{ $socialCategory -> title -> $language }}</h2>
+            <h2 class="fw-bold text-dark-blue fs-3" data-language="{{$language}}">{{ $socialCategory -> title -> $language }}</h2>
             <div class="swiper categories">
                 <div class="swiper-wrapper">
                     @foreach( $social as $item )

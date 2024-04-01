@@ -24,6 +24,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/category/{category}', [PageController::class, 'category']) -> name('category.page');
     Route::get('/section/{section}', [PageController::class, 'section']) -> name('section.page');
     Route::get('/videos', [PageController::class, 'videos']) -> name('video.page');
+    Route::get('/authors/{author}', [PageController::class, 'author']) -> name('author.page');
 
     Route::prefix('admin')->group(function () {
         Route::get('/', [AdminController::class, 'login'])->name('admin.login.page');
@@ -38,6 +39,7 @@ Route::group(['prefix' => '{language}'], function () {
             // TODO: custom route
             Route::post('/set-article-categories/{article}', [ArticleController::class, 'setArticleCategories'])->name('setArticleCategories');
             Route::get('/delete-article-categories/{article}/{category}', [ArticleController::class, 'deleteArticleCategories'])->name('deleteArticleCategories');
+            Route::post('/set-article-author/{article}', [ArticleController::class, 'setArticleAuthor'])->name('setArticleAuthor');
         });
     });
 });

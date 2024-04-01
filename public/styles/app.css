@@ -136,7 +136,7 @@
 
 .search-bar{
     background-color: var(--dark-blue) !important;
-    color: hsl(201deg 91% 51%) !important;
+    color: white !important;
     border-radius: 0;
     padding: 0;
     border-color: currentColor;
@@ -286,4 +286,13 @@
 .category-item-image{
     height: 100% !important;
     object-fit: cover;
+}
+[data-content='none'] {
+    display: none !important;
+}
+.author-avatar{
+    width: 48px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center center;
 }

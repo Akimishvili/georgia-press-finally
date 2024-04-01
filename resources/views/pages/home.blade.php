@@ -14,7 +14,7 @@
 @endsection
 
 @section('main')
-    @include('partials.articles')
+    @include('partials.articles', ['mt' => 'mt-5'])
     @include('partials.sport-category')
     @include('partials.social-category')
     @include('partials.economy-category')

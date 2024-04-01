@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('meta')
+    @include('partials.share-meta')
+@endsection
 @section('title', $article -> title -> $language)
 
 @section('styles')
@@ -18,6 +21,28 @@
             <div class="row justify-content-between">
                 <div class="col-md-7 mb-4">
                     <main class="main border p-4 rounded">
+                        <div class="row align-items-center">
+                            @if($author)
+                                <div class="col-6">
+                                    <div class="row align-items-center gap-2">
+                                        <div class="col pe-0">
+                                            <a class="d-block" href="{{ route('author.page', ['language' => app() -> getLocale(), 'author' => $author])  }}">
+                                                <img class="rounded-circle author-avatar mb-2" src="{{ $author -> image ? asset('images/authors/' . $author -> image) : asset('images/authors/author-avatar.png') }}"  alt="author avatar icon"/>
+                                            </a>
+                                        </div>
+                                        <div class="col px-0" style="flex-grow: 4">
+                                            <a class="d-flex flex-column pb-2 text-decoration-none" href="{{ route('author.page', ['language' => app() -> getLocale(), 'author' => $author]) }}">
+                                                <span class="fs-6 text-dark-blue">{{ join(' ', [$author -> first_name -> $language, $author -> last_name -> $language])}}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                            <div class="col-6 d-flex gap-2 justify-content-end">
+                                <i class="bi bi-calendar3"></i>
+                                <span>{{ $article -> created_at }}</span>
+                            </div>
+                        </div>
                         <div class="container px-0">
                             <x-view-more-component :article="$article" :language="$language" />
                             @foreach($article -> blocks as $block)
@@ -42,8 +67,13 @@
                             </div>
                         @endforeach
                     </main>
+                    <div class="btn-group my-4 justify-content-end float-end" role="group" aria-label="Basic outlined example">
+                        <button type="button" class="btn btn-outline-primary bg-dark-blue text-white" data-sharer="facebook"  data-url="{{ url() -> current() }}" data-title="{{ $article -> title -> $language }}"><i class="bi bi-facebook "></i></button>
+                        <button type="button" class="btn btn-outline-primary bg-dark-blue text-white" data-sharer="telegram"  data-url="{{ url() -> current() }}" data-title="{{ $article -> title -> $language }}"><i class="bi bi-telegram"></i></button>
+                        <button type="button" class="btn btn-outline-primary bg-dark-blue text-white" data-sharer="twitter"  data-url="{{ url() -> current() }}" data-title="{{ $article -> title -> $language }}"><i class="bi bi-twitter-x"></i></button>
+                    </div>
                 </div>
-                <div class="col-md-4 assist">
+                <div class="col-md-4 assist pb-4">
                     <h4 class="p-4" data-language="{{$language}}">{{ __('static.section.assist.title') }}</h4>
                     <div class="assist d-flex flex-column gap-4">
                         @foreach($lasts as $article)
@@ -59,6 +89,7 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
     <script>
         const photoGalleryBreakPoints =  {
             400: {
@@ -84,5 +115,6 @@
         Fancybox.bind("[data-fancybox]", {
             // Your custom options
         });
+
     </script>
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Author;
 use App\Models\Section;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -74,8 +75,6 @@ class PageController extends Controller
             'sport' => $sport,
             'worldCategory' => $worldCategory,
             'world' => $world,
-//            'mediaCategory' => $mediaCategory,
-//            'media' => $media,
             'economyCategory' => $economyCategory,
             'economy' => $economy,
             'greenCategory' => $greenCategory,
@@ -119,6 +118,15 @@ class PageController extends Controller
         return view('pages.video', [
             'language' => App::getLocale(),
             'blocks' => $blocks
+        ]);
+    }
+    public function author(string $language, Author $author)
+    {
+        $articles = $author -> articles() -> paginate(9);
+        return view('pages.author',[
+            'language' => $language,
+           'author' => $author,
+           'articles' => $articles
         ]);
     }
 }
