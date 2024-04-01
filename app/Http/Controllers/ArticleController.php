@@ -72,7 +72,6 @@ class ArticleController extends Controller
             'lasts' => Article::orderBy('id', 'desc')->take(3)->get(),
             'categories' => Category::all(),
             'author' => $article -> authors() -> first()
-
         ]);
     }
 

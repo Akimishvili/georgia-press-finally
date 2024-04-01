@@ -11,9 +11,13 @@ class BlockComponent extends Component
     /**
      * Create a new component instance.
      */
+    public string $content;
     public function __construct(public object $block, public string $language)
     {
-
+        if($block -> title) $this -> content = 'title';
+        elseif ($block -> sub_title) $this -> content = 'sub title';
+        elseif ($block -> description) $this -> content = 'description';
+        else $this -> content = 'none';
     }
 
     /**
