@@ -14,9 +14,9 @@
 @endsection
 
 @section('main')
-    <div class="container mt-3">
+    <div class="container mt-5 mt-md-3">
         <h3 class="text-light-blue text-uppercase fs-4">
-            <span >
+            <span>
                   {{ __('static.page.all_articles') }} /
             </span>
             <span class="fw-bold">
@@ -32,3 +32,4 @@
         const swiper = new Swiper(".categories", categoryItemSlide);
     </script>
 @endsection
+
