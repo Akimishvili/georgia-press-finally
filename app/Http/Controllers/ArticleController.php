@@ -49,13 +49,16 @@ class ArticleController extends Controller
         $image->move(public_path($uploadPath), $imageName); //TODO: Store File in Public Directory
         $title = ["ka" => $data['title_ka'], "en" => $data['title_en'], "ru" => $data['title_ru']];
         $description = ["ka" => $data['description_ka'], "en" => $data['description_en'], "ru" => $data['description_ru']];
-        Article::create([
+        $storeDate = [
             'title' => $title,
             'description' => $description,
             'image' => $imageName,
             'uuid' => Str::uuid()->toString(),
             'date' => now()
-        ]);
+        ];
+        if ($request->visibility !== null) $storeDate = [...$storeDate, 'visibility' => $data['visibility']];
+
+        Article::create($storeDate);
         return redirect() -> route('articles.index', ['language' => App::getLocale()]) -> with('success', 'სტატია შეიქმნა წარმატებით');
     }
 
@@ -94,10 +97,10 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $language, Article $article)
+    public function update(UpdateArticleRequest $request, string $language, Article $article)
     {
         $imageName = null;
-        $data = $request->all();
+        $data = $request->validated();
         if($request->hasFile('image')){
             $image = $request -> image;
             $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
@@ -114,6 +117,7 @@ class ArticleController extends Controller
         ];
         if ($imageName) $updatedData = [...$updatedData, 'image' => $imageName];
         if ($request -> filled('section_id')) $updatedData = [...$updatedData, 'section_id' => $data['section_id']];
+        if ($request->visibility !== null) $updatedData = [...$updatedData, 'visibility' => $data['visibility']];
         $article->update($updatedData);
         return redirect() -> back()-> with('success', 'სტატია განახლდა წარმატებით');
     }

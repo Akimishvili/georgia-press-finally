@@ -180,6 +180,13 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="mb-3">
+                    <select class="form-select" aria-label="Default select example" name="visibility">
+                        <option selected disabled>სტატიის გამოჩენა/დამალვა</option>
+                        <option value="1" @selected($article -> visibility == "1")>გამოჩენა</option>
+                        <option value="0" @selected($article -> visibility == "0")>დამალვა</option>
+                    </select>
+                </div>
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-primary">განახლება</button>

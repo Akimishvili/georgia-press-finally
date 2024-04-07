@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-md-7 mb-4">
-                    <main class="main border p-4 rounded">
+                    <main class="main border py-4  px-0 px-md-4 rounded">
                         <div class="container px-0">
                             <x-view-more-component :article="$article" :language="$language" :author="$author"/>
                             @foreach($article -> blocks as $block)

@@ -82,6 +82,13 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
+                <div class="mb-3">
+                    <select class="form-select" aria-label="Default select example" name="visibility">
+                        <option selected disabled>სტატიის გამოჩენა/დამალვა</option>
+                        <option value="1">გამოჩენა</option>
+                        <option value="0">დამალვა</option>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">დამატება</button>
             </form>
         </div>

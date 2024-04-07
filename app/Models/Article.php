@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'description', 'image', 'date','view', 'uuid','section_id'];
+    protected $fillable = ['title', 'description', 'image', 'date','view', 'uuid','section_id','visibility'];
     protected  $casts = [
         'title' => JsonConvertCast::class,
         'description' => JsonConvertCast::class

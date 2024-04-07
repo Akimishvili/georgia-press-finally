@@ -29,7 +29,8 @@ class UpdateArticleRequest extends FormRequest
             'description_en' => 'required|string',
             'description_ru' => 'required|string',
             'image' => 'sometimes|mimes:jpg,webp,png',
-            'section_id' => 'nullable'
+            'section_id' => 'nullable',
+            'visibility' => 'nullable'
         ];
     }
 }
