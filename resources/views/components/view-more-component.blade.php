@@ -28,7 +28,7 @@
         @else
             <div class="col-12 d-flex gap-2 py-2 justify-content-end">
                 <i class="bi bi-calendar3"></i>
-                <span>{{ $article -> created_at }}</span>
+                <span>{{ $article -> date }}</span>
             </div>
         @endif
     </div>
