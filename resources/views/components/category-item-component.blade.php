@@ -1,7 +1,7 @@
 <div class="card mb-3">
     <div class="row g-0">
         <div class="col-sm-4">
-            <img src="{{ asset('images/articles/' . $item -> image ) }}" class="img-fluid rounded-start category-item-image" alt="...">
+            <img src="{{ asset('images/articles/' . $item -> image ) }}" class="rounded-start response-img" alt="...">
         </div>
         <div class="col-sm-8">
             <div class="card-body">
