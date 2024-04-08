@@ -30,7 +30,8 @@ class UpdateArticleRequest extends FormRequest
             'description_ru' => 'required|string',
             'image' => 'sometimes|mimes:jpg,webp,png',
             'section_id' => 'nullable',
-            'visibility' => 'nullable'
+            'visibility' => 'nullable',
+            'date' => 'nullable|string'
         ];
     }
 }

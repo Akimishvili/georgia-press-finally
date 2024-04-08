@@ -54,7 +54,7 @@ class ArticleController extends Controller
             'description' => $description,
             'image' => $imageName,
             'uuid' => Str::uuid()->toString(),
-            'date' => now()
+            'date' => $data['date']
         ];
         if ($request->visibility !== null) $storeDate = [...$storeDate, 'visibility' => $data['visibility']];
 
@@ -118,6 +118,7 @@ class ArticleController extends Controller
         if ($imageName) $updatedData = [...$updatedData, 'image' => $imageName];
         if ($request -> filled('section_id')) $updatedData = [...$updatedData, 'section_id' => $data['section_id']];
         if ($request->visibility !== null) $updatedData = [...$updatedData, 'visibility' => $data['visibility']];
+        if($request -> date) $updatedData = [...$updatedData, 'date' => $data['date']];
         $article->update($updatedData);
         return redirect() -> back()-> with('success', 'სტატია განახლდა წარმატებით');
     }

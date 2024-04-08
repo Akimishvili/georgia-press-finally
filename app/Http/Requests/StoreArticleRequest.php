@@ -30,7 +30,8 @@ class StoreArticleRequest extends FormRequest
             'description_ru' => 'required|string|min:10',
             'image' => 'required|mimes:jpg,webp,png',
             'section_id' => 'nullable',
-            'visibility' => 'nullable'
+            'visibility' => 'nullable',
+            'date' => 'required|string'
         ];
     }
 }

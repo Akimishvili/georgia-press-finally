@@ -187,6 +187,9 @@
                         <option value="0" @selected($article -> visibility == "0")>დამალვა</option>
                     </select>
                 </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control"  name="date"  value="{{ $article -> date }}"/>
+                </div>
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-primary">განახლება</button>
