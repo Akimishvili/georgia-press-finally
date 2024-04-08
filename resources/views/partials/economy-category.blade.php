@@ -1,7 +1,7 @@
 @if( count($economy) )
     <div class="container-fluid pt-4">
         <div class="container">
-            <h2 class="fw-bold text-dark-blue fs-3" data-language="{{$language}}">{{ $economyCategory -> title -> $language }}</h2>
+            <h2 class="fw-bold text-dark-blue fs-3 text-uppercase" data-language="{{$language}}">{{ $economyCategory -> title -> $language }}</h2>
             <div class="swiper categories">
                 <div class="swiper-wrapper">
                     @foreach( $economy as $item )

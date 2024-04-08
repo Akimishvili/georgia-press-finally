@@ -296,3 +296,23 @@
     object-fit: cover;
     object-position: center center;
 }
+.view-more-card{
+    border: none !important;
+}
+.category-name-label{
+    font-size: 12px;
+}
+.category-btn{
+    color: white;
+    background-color: var(--dark-blue);
+}
+.category-btn:hover{
+    color: var(--light-blue);
+    background-color: var(--dark-blue);
+}
+.article-card-title{
+    transition: color 0.4s;
+}
+.article-card-title:hover{
+    color: var(--light-blue) !important;
+}

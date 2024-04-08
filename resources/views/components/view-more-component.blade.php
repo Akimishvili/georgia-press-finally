@@ -1,4 +1,4 @@
-<div class="card mb-3">
+<div class="card mb-3 view-more-card">
     <h2 class="card-title p-3" data-language="{{$language}}">{{ $article -> title -> $language }}</h2>
     <div class="card-header p-0 overflow-hidden ">
         <a href="{{ asset('images/articles/' . $article -> image ) }}" data-fancybox="gallery" data-caption="{{ $article -> title -> $language }}">
@@ -32,7 +32,7 @@
             </div>
         @endif
     </div>
-    <div class="card-body">
+    <div class="card-body border border-0">
         <div class="card-text" data-language="{{$language}}">{!! $article -> description -> $language !!}</div>
     </div>
 </div>

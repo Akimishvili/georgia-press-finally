@@ -4,11 +4,8 @@
             <div class="article-categories">
                 @foreach($article -> categories as $category)
                     <div class="btn-group category-group" role="group" aria-label="button group">
-                        <button type="button" class="btn bg-dark-blue text-light-blue">
-                            <i class="bi bi-tag"></i>
-                        </button>
-                        <a type="button" class="btn d-block bg-dark-blue text-light-blue category-btn" href="{{ route('category.page', ['language' => app() -> getLocale(), 'category' => $category]) }}" data-language="{{$language}}">
-                            <span class="button-label text-uppercase">{{$category -> title -> $language}}</span>
+                        <a type="button" class="btn d-block category-btn" href="{{ route('category.page', ['language' => app() -> getLocale(), 'category' => $category]) }}" data-language="{{$language}}">
+                            <span class="button-label text-uppercase category-name-label">{{$category -> title -> $language}}</span>
                         </a>
                     </div>
                 @endforeach
@@ -16,10 +13,10 @@
         </div>
         <div class="card-body">
             <a class="d-block text-decoration-none" href="{{ route('articles.show',['language' => app() -> getLocale(),'article' => $article]) }}">
-                <h5 class="card-title truncate fs-4 text-black" data-language="{{$language}}">{{ $article -> title -> $language }}</h5>
+                <h5 class="article-card-title truncate fs-4 text-black" data-language="{{$language}}">{{ $article -> title -> $language }}</h5>
             </a>
             <div class="card-text line-clamp" data-language="{{$language}}">{!!  $article -> description -> $language !!}</div>
-            <a href="{{ route('articles.show',['language' => app() -> getLocale(),'article' => $article]) }}" class="btn bg-dark-blue text-light-blue more float-end mt-2" data-language="{{$language}}">{{__('static.page.more')}}</a>
+            <a href="{{ route('articles.show',['language' => app() -> getLocale(),'article' => $article]) }}" class="btn bg-light-blue text-white more float-end mt-2" data-language="{{$language}}">{{__('static.page.more')}}</a>
         </div>
 </div>
 

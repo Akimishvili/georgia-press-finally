@@ -41,8 +41,8 @@ html, body {
 
 /* TODO: hover effects */
 .more:hover {
-    background-color:  hsla(var(--light-blue-hue), var(--light-blue-saturation), var(--light-blue-lightness), var(--light-blue-alfa));
-    color: hsla(var(--dark-blue-hue), var(--dark-blue-saturation), var(--dark-blue-lightness), var(--dark-blue-alfa));
+    color: var(--dark-blue) !important;
+    background-color: var(--light-blue);
 }
 
 .animated-line{

@@ -89,6 +89,9 @@
                         <option value="0">დამალვა</option>
                     </select>
                 </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="date" placeholder="თარიღი"/>
+                </div>
                 <button type="submit" class="btn btn-primary">დამატება</button>
             </form>
         </div>

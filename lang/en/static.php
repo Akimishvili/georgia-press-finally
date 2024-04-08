@@ -39,7 +39,7 @@ return [
         'home' => [
             'title' => 'Home Page'
         ],
-        'more' => 'View More',
+        'more' => 'More',
         'category' => 'Category',
         'notFound' => 'No Articles Found',
         'all_articles' => 'All Articles'
