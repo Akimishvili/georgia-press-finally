@@ -1,8 +1,8 @@
 <div class="card mb-3 view-more-card">
-    <h2 class="card-title p-3" data-language="{{$language}}">{{ $article -> title -> $language }}</h2>
+    <h2 class="card-title p-3 fw-bolder view-more-card-title" data-language="{{$language}}">{{ $article -> title -> $language }}</h2>
     <div class="card-header p-0 overflow-hidden ">
         <a href="{{ asset('images/articles/' . $article -> image ) }}" data-fancybox="gallery" data-caption="{{ $article -> title -> $language }}">
-            <img src="{{ asset('images/articles/' . $article -> image ) }}" class="img-fluid response-img  zoom-image" alt="{{ $article -> title -> $language }}">
+            <img src="{{ asset('images/articles/' . $article -> image ) }}" class="img-fluid response-img zoom-image" alt="{{ $article -> title -> $language }}">
         </a>
     </div>
     <div class="row align-items-center p-3">

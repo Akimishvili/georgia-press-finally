@@ -316,3 +316,6 @@
 .article-card-title:hover{
     color: var(--light-blue) !important;
 }
+.view-more-card-title{
+    font-family: Avenir !important;
+}
