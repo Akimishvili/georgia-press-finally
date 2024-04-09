@@ -15,7 +15,7 @@ class PageController extends Controller
 {
     public function home(Request $request)
     {
-        $allArticles = Article::where('visibility', '1') -> with('categories') -> orderBy('id', 'DESC')->paginate(9);
+        $allArticles = Article::where('visibility', '1') -> with('categories') -> orderBy('date', 'DESC')->paginate(9);
         if($request -> filled('search')){
             $allArticles = Article::where('title', 'like', '%'.$request -> search.'%')->
             orWhere('description', 'like', '%'.$request -> search.'%')
@@ -91,7 +91,7 @@ class PageController extends Controller
     {
         $mainCategory = Category::where('id', $category) -> first();
         $articles = $mainCategory->load(['articles' => function ($query) {
-            $query->where('visibility', '1');
+            $query->where('visibility', '1')->orderBy('date', 'DESC');
         }]);
 
         return view('pages.category', [
