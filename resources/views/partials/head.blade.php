@@ -7,6 +7,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3WTJ1ZDFQJ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-3WTJ1ZDFQJ');
+</script>
 <link rel="shortcut icon" href="{{ asset('images/themes/georgia-press-icon.jpg') }}" type="image/x-icon" />
 <link rel="stylesheet" href="{{ asset('styles/app.css?date=01/04/2024') }}" />
 @yield('styles')

@@ -99,13 +99,14 @@
 @endsection
 
 @section('scripts')
-    <script>
 
-       $('.textarea-form-field').summernote({
-           placeholder: 'Content Here',
-           tabsize: 2,
-           height: 300
-       });
-    </script>
+<script src="https://cdn.tiny.cloud/1/yu4ov2g7qn4hup219i0ahf4wzwcsvtkns120joev89fik6t2/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '.textarea-form-field',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+</script>
 @endsection
 

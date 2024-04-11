@@ -46,7 +46,7 @@ return [
     ],
     'meta' => [
         'description' => 'An informative journalistic website delivering concise news, analysis, and features, keeping readers informed and engaged.',
-        'keywords' => 'articles, posts, news, media'
+        'keywords' => 'articles, GeorgiaPress, news, media'
     ],
     'form' => [
         'email' => 'E-mail',

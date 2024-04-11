@@ -7,7 +7,7 @@
 <meta property="og:url" content='{{ url() -> current() }}' />
 <meta property="og:locate" content='{{ app() -> getLocale() }}' />
 <meta property="og:type" content='website' />
-<meta property="og:site_name" content='Georgia Press' />
+<meta property="og:site_name" content='GeorgiaPress' />
 <!--  twitter -->
 <meta name="twitter:title" content='{{ $article -> title -> $language }}' />
 <meta name="twitter:description" content='{{ Str::substr( strip_tags( $article -> description -> $language), 0, 150)}}' />

@@ -331,6 +331,7 @@
     </button>
 @endsection
 @section('scripts')
+    <script src="https://cdn.tiny.cloud/1/yu4ov2g7qn4hup219i0ahf4wzwcsvtkns120joev89fik6t2/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
 
         function addArticleSection(e) {
@@ -340,20 +341,14 @@
             addBlockSection.appendChild(addSectionForTemplate.content.cloneNode(true))
             e.setAttribute('disabled', 'disabled')
             deleteSectionBtn.removeAttribute('disabled')
-            $('.textarea-form-field').summernote({
-                placeholder: 'Content Here',
-                tabsize: 2,
-                height: 300,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
-                ]
-            });
+
+
+         tinymce.init({
+            selector: '.textarea-form-field',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+         });
+
         }
 
         function deleteArticleSection(e){
@@ -363,10 +358,10 @@
             e.setAttribute('disabled', 'disabled')
             addSectionBtn.removeAttribute('disabled')
         }
-        $('.textarea-form-field').summernote({
-            placeholder: 'Content Here',
-            tabsize: 2,
-            height: 300,
+        tinymce.init({
+            selector: '.textarea-form-field',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
         });
     </script>
 @endsection
