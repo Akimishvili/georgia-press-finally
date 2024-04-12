@@ -1,3 +1,4 @@
+@if( count($block))
 <div class="container-fluid pt-4 pb-4">
         <div class="container">
             <h2 class="fw-bold text-dark-blue fs-3 text-uppercase" data-language="{{$language}}">{{ __('static.nav.video') }}</h2>
@@ -13,3 +14,4 @@
             </div>
         </div>
 </div>
+@endif
