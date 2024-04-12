@@ -28,7 +28,7 @@ class UpdateAuthorRequest extends FormRequest
             'last_name_ka' => 'required|string|min:3|max:200',
             'last_name_en' => 'required|string|min:3|max:200',
             'last_name_ru' => 'required|string|min:3|max:200',
-            'image' => 'sometimes|mimes:jpg,webp,png'
+            'image' => 'nullable|url'
         ];
     }
 }

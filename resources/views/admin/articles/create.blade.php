@@ -77,7 +77,7 @@
                     <!-- tab ru-->
                 </div>
                 <div class="mb-3">
-                    <input type="file" class="form-control"  name="image" required/>
+                    <input type="url" class="form-control"  name="image"  placeholder="image url" required/>
                     @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

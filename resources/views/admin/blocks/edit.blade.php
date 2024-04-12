@@ -73,14 +73,14 @@
                     @if($block -> image)
                         <div class="row align-items-center">
                             <div class="col-md-10">
-                                <input type="file" class="form-control"  name="image" />
+                                <input type="url" class="form-control"  name="image"  placeholder="image url" value="{{ $block -> image }}" required/>
                             </div>
                             <div class="col-md-2">
-                                <img src="{{ asset('images/articles/blocks/' . $block -> image) }}" class="w-50">
+                                <img src="{{$block -> image}}" class="w-50" />
                             </div>
                         </div>
                     @else
-                        <input type="file" class="form-control"  name="image" />
+                        <input type="url" class="form-control"  name="image"  placeholder="image url" required/>
                     @endif
                 </div>
                 <div class="mb-3">

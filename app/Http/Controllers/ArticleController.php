@@ -43,16 +43,16 @@ class ArticleController extends Controller
     public function store(StoreArticleRequest $request)
     {
         $data = $request->validated();
-        $image = $request -> image;
-        $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
-        $uploadPath = 'images/articles'; //TODO: Set Upload Path
-        $image->move(public_path($uploadPath), $imageName); //TODO: Store File in Public Directory
+//        $image = $request -> image;
+//        $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
+//        $uploadPath = 'images/articles'; //TODO: Set Upload Path
+//        $image->move(public_path($uploadPath), $imageName); //TODO: Store File in Public Directory
         $title = ["ka" => $data['title_ka'], "en" => $data['title_en'], "ru" => $data['title_ru']];
         $description = ["ka" => $data['description_ka'], "en" => $data['description_en'], "ru" => $data['description_ru']];
         $storeDate = [
             'title' => $title,
             'description' => $description,
-            'image' => $imageName,
+            'image' => $data['image'],
             'uuid' => Str::uuid()->toString(),
             'date' => $data['date']
         ];
@@ -101,21 +101,22 @@ class ArticleController extends Controller
     {
         $imageName = null;
         $data = $request->validated();
-        if($request->hasFile('image')){
-            $image = $request -> image;
-            $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
-            $uploadPath = 'images/articles'; // TODO: Set Upload Path
-            $isUploaded = $image->move(public_path($uploadPath), $imageName); // TODO: Store File in Public Directory
-            if(!$isUploaded) return redirect() -> back()-> with('warning', 'სურათის ატვირთვა ვერ მოხერხდა, სცადეთ თავიდან');
-        }
+//        if($request->hasFile('image')){
+//            $image = $request -> image;
+//            $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
+//            $uploadPath = 'images/articles'; // TODO: Set Upload Path
+//            $isUploaded = $image->move(public_path($uploadPath), $imageName); // TODO: Store File in Public Directory
+//            if(!$isUploaded) return redirect() -> back()-> with('warning', 'სურათის ატვირთვა ვერ მოხერხდა, სცადეთ თავიდან');
+//        }
         $title = ["ka" => $data['title_ka'], "en" => $data['title_en'], "ru" => $data['title_ru']];
         $description = ["ka" => $data['description_ka'], "en" => $data['description_en'], "ru" => $data['description_ru']];
         $updatedData = [
             'title' => $title,
             'description' => $description,
+            'image' => $data['image'],
             'section_id' => null
         ];
-        if ($imageName) $updatedData = [...$updatedData, 'image' => $imageName];
+//        if ($imageName) $updatedData = [...$updatedData, 'image' => $imageName];
         if ($request -> filled('section_id')) $updatedData = [...$updatedData, 'section_id' => $data['section_id']];
         if ($request->visibility !== null) $updatedData = [...$updatedData, 'visibility' => $data['visibility']];
         if($request -> date) $updatedData = [...$updatedData, 'date' => $data['date']];

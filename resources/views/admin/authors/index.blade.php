@@ -12,7 +12,7 @@
                 <div class="card">
                     @if($author -> image)
                         <div class="card-header">
-                            <img  class="response-img" src="{{ asset('images/authors/' . $author -> image) }}" />
+                            <img  class="response-img" src="{{  $author -> image }}" />
                         </div>
                     @endif
                     <div class="card-body">

@@ -11,7 +11,7 @@
             <div class="col-xl-4 col-lg-6 mb-4">
                 <div class="card admin-article-card" data-view="{{ $article -> view }}">
                     <div class="card-header">
-                        <img  class="response-img" src="{{ asset('images/articles/' . $article -> image) }}" />
+                        <img  class="response-img" src="{{  $article -> image }}" />
                     </div>
                     <div class="card-body">
                         <h3 class="card-title truncate" title="{{ $article -> title -> ka }}">

@@ -1,6 +1,6 @@
 <div class="card article-card">
         <div class="card-header p-1 bg-transparent position-relative article-card-header">
-            <img src="{{ asset('images/articles/' . $article -> image) }}" class="card-img-top response-img" alt="...">
+            <img src="{{  $article -> image }}" class="card-img-top response-img" alt="...">
             <div class="article-categories">
                 @foreach($article -> categories as $category)
                     <div class="btn-group category-group" role="group" aria-label="button group">

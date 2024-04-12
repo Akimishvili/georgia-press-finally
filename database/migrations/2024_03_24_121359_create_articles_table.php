@@ -19,8 +19,9 @@ return new class extends Migration
             $table->date('date');
             $table->integer('view')->default(0);
             $table->uuid('uuid');
+            $table->enum('visibility',['0', '1']) -> default('1');
             $table->unsignedBigInteger('section_id')->nullable();
-            $table->foreign('section_id')->references('id')->on('sections');
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -28,7 +28,7 @@ class UpdateArticleRequest extends FormRequest
             'description_ka' => 'required|string',
             'description_en' => 'required|string',
             'description_ru' => 'required|string',
-            'image' => 'sometimes|mimes:jpg,webp,png',
+            'image' => 'required|url',
             'section_id' => 'nullable',
             'visibility' => 'nullable',
             'date' => 'nullable|string'

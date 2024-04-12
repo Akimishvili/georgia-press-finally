@@ -38,23 +38,22 @@ class AuthorController extends Controller
     public function store(StoreAuthorRequest $request)
     {
         $data = $request->validated();
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = uniqid() . '-' . time() . '.' . $image->extension();
-            $uploadPath = 'images/authors/';
-            $image->move(public_path($uploadPath), $imageName);
-        } else {
-            $imageName = null;
-        }
+//        if ($request->hasFile('image')) {
+//            $image = $request->file('image');
+//            $imageName = uniqid() . '-' . time() . '.' . $image->extension();
+//            $uploadPath = 'images/authors/';
+//            $image->move(public_path($uploadPath), $imageName);
+//        } else {
+//            $imageName = null;
+//        }
         $first_name = ["ka" => $data['first_name_ka'], "en" => $data['first_name_en'], "ru" => $data['first_name_ru']];
         $last_name = ["ka" => $data['last_name_ka'], "en" => $data['last_name_en'], "ru" => $data['last_name_ru']];
-
-
-        Author::create([
+        $storeData = [
             'first_name' => $first_name,
             'last_name' => $last_name,
-            'image' => $imageName,
-        ]);
+        ];
+        if($request -> filled('image')) $storeData = [...$storeData, 'image' => $data['image']];
+        Author::create($storeData);
         return redirect() -> route('authors.index', ['language' => App::getLocale()]) -> with('success', 'ავტორი შეიქმნა წარმატებით');
     }
 
@@ -82,15 +81,14 @@ class AuthorController extends Controller
      */
     public function update(UpdateAuthorRequest $request, string $language, Author $author)
     {
-        $imageName = null;
         $data = $request->validated();
-        if($request->hasFile('image')){
-            $image = $request -> image;
-            $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
-            $uploadPath = 'images/authors/'; // TODO: Set Upload Path
-            $isUploaded = $image->move(public_path($uploadPath), $imageName); // TODO: Store File in Public Directory
-            if(!$isUploaded) return redirect() -> back()-> with('warning', 'სურათის ატვირთვა ვერ მოხერხდა, სცადეთ თავიდან');
-        }
+//        if($request->hasFile('image')){
+//            $image = $request -> image;
+//            $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
+//            $uploadPath = 'images/authors/'; // TODO: Set Upload Path
+//            $isUploaded = $image->move(public_path($uploadPath), $imageName); // TODO: Store File in Public Directory
+//            if(!$isUploaded) return redirect() -> back()-> with('warning', 'სურათის ატვირთვა ვერ მოხერხდა, სცადეთ თავიდან');
+//        }
         $first_name = ["ka" => $data['first_name_ka'], "en" => $data['first_name_en'], "ru" => $data['first_name_ru']];
         $last_name = ["ka" => $data['last_name_ka'], "en" => $data['last_name_en'], "ru" => $data['last_name_ru']];
         $updatedData = [
@@ -98,7 +96,7 @@ class AuthorController extends Controller
             'last_name' => $last_name,
         ];
 
-        if ($imageName) $updatedData = [...$updatedData, 'image' => $imageName];
+        if ($request -> filled('image')) $updatedData = [...$updatedData, 'image' => $data['image']];
         $author -> update($updatedData);
         return redirect() -> back() -> with('success', 'ავტორი განახლდა წარმატებით');
     }

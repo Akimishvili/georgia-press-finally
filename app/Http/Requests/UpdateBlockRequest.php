@@ -31,7 +31,7 @@ class UpdateBlockRequest extends FormRequest
             'description_ka' => 'nullable|string|min:10',
             'description_en' => 'nullable|string|min:10',
             'description_ru' => 'nullable|string|min:10',
-            'image' => 'sometimes|mimes:jpg,webp,png',
+            'image' => 'nullable|url',
             'video' => 'nullable|url:http,https',
             'article_id' => 'required'
         ];

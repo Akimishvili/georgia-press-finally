@@ -170,7 +170,7 @@
                     <!-- tab ru-->
                 </div>
                 <div class="mb-3">
-                    <input type="file" class="form-control"  name="image" />
+                    <input type="url" class="form-control"  name="image"  placeholder="image url"  value="{{ $article -> image }}" required/>
                 </div>
                 <div class="mb-3">
                     <select class="form-select" aria-label="Default select example" name="section_id">
@@ -195,7 +195,7 @@
                         <button type="submit" class="btn btn-primary">განახლება</button>
                     </div>
                     <div class="col-md-6 overflow-hidden">
-                        <img src="{{ asset('images/articles/' . $article -> image) }}" class="response-img float-end w-25"/>
+                        <img src="{{ $article -> image }}" class="response-img float-end w-25"/>
                     </div>
                 </div>
             </form>
@@ -233,7 +233,7 @@
             @elseif($block -> image)
                 <div class="row border border-white p-2 rounded-2 mb-3 align-items-center">
                     <div class="col-sm-10">
-                        <img class="w-25" src="{{ asset('images/articles/blocks/' . $block -> image) }}" />
+                        <img class="w-25" src="{{ $block -> image }}" />
                     </div>
                     <div class="col-sm-2">
                         <a type="button" class="btn btn-primary w-100" href="{{ route('blocks.edit',['language' => app()->getLocale(), 'block' => $block]) }}">Edit</a>
@@ -310,7 +310,7 @@
                 <!-- tab ru-->
             </div>
             <div class="mb-3">
-                <input type="file" class="form-control"  name="image" />
+                <input type="url" class="form-control"  name="image"  placeholder="image url" required/>
             </div>
             <div class="mb-3">
                 <input type="url" class="form-control"  name="video" placeholder="ვიდეო (EMBED URL)"/>

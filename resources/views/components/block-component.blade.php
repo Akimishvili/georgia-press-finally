@@ -1,8 +1,8 @@
 <div class="card card-block my-4 border border-0">
     @if($block -> image)
         <div class="card-header p-0 overflow-hidden border border-0">
-            <a href="{{ asset('images/articles/blocks/' . $block -> image ) }}" data-fancybox="gallery" data-caption="Block graphic resource">
-                <img src="{{ asset('images/articles/blocks/' . $block -> image ) }}" class="img-fluid response-img rounded-start zoom-image" alt="...">
+            <a href="{{  $block -> image  }}" data-fancybox="gallery" data-caption="Block graphic resource">
+                <img src="{{ $block -> image  }}" class="img-fluid response-img rounded-start zoom-image" alt="...">
             </a>
     </div>
     @endif

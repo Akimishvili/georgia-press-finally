@@ -47,7 +47,7 @@
                     <!-- tab ru-->
                 </div>
                 <div class="mb-3">
-                    <input type="file" class="form-control"  name="image" />
+                    <input type="url" class="form-control"  name="image" placeholder="image url"/>
                 </div>
                 <button type="submit" class="btn btn-primary">დამატება</button>
             </form>

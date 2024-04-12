@@ -90,6 +90,7 @@ class PageController extends Controller
     public function category(string $language, string $category)
     {
         $mainCategory = Category::where('id', $category) -> first();
+         if(!$mainCategory) abort(404);
         $articles = $mainCategory->load(['articles' => function ($query) {
             $query->where('visibility', '1')->orderBy('date', 'DESC');
         }]);
@@ -122,7 +123,7 @@ class PageController extends Controller
     {
         $articles = $author -> articles() -> where('visibility', '1') ->paginate(9);
         return view('pages.author',[
-            'language' => $language,
+           'language' => $language,
            'author' => $author,
            'articles' => $articles
         ]);

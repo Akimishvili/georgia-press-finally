@@ -50,12 +50,12 @@
                 <div class="mb-3">
                     @if($author -> image)
                         <div class="row">
-                            <div class="col-md-8">
-                                <input type="file" class="form-control"  name="image" />
+                            <div class="col-md-10">
+                                <input type="url" class="form-control"  name="image" value="{{ $author -> image }}" />
                             </div>
-                            <div class="col-md-4">
-                                <a href="{{ asset('images/authors/' . $author -> image ) }}" data-fancybox="gallery" data-caption="Single image">
-                                    <img src="{{ asset('images/authors/' . $author -> image ) }}" class="w-25 float-end"/>
+                            <div class="col-md-2">
+                                <a href="{{  $author -> image }}" data-fancybox="gallery" data-caption="Single image">
+                                    <img src="{{  $author -> image  }}" class="w-100 float-end"/>
                                 </a>
                             </div>
                         </div>

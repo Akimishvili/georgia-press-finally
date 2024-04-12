@@ -59,14 +59,18 @@ class BlockController extends Controller
             $video = $data['video'];
             $storeDate  = [...$storeDate, 'video' => $video];
         }
-        if($request -> hasFile('image')){
-            $image = $request -> file('image');
-            $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
-            $uploadPath = 'images/articles/blocks'; //TODO: Set Upload Path
-            $isUploaded = $image->move(public_path($uploadPath), $imageName); //TODO: Store File in Public Directory
-            $storeDate  = [...$storeDate, 'image' => $imageName];
-            if(!$isUploaded) return redirect() -> back() -> with('warning', 'სურათის ატვირთვა ვერ მოხერხდა, სცადეთ დავიდან');
+        if($request -> filled('image')){
+            $image = $data['image'];
+            $storeDate  = [...$storeDate, 'image' => $image];
         }
+//        if($request -> hasFile('image')){
+//            $image = $request -> file('image');
+//            $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
+//            $uploadPath = 'images/articles/blocks'; //TODO: Set Upload Path
+//            $isUploaded = $image->move(public_path($uploadPath), $imageName); //TODO: Store File in Public Directory
+//            $storeDate  = [...$storeDate, 'image' => $imageName];
+//            if(!$isUploaded) return redirect() -> back() -> with('warning', 'სურათის ატვირთვა ვერ მოხერხდა, სცადეთ დავიდან');
+//        }
         Block::create($storeDate);
         return redirect() -> back() -> with('success', 'სტატია სექცია წარმატებით დაემატა');
     }
@@ -126,15 +130,19 @@ class BlockController extends Controller
             $video = $data['video'];
             $storeDate  = [...$storeDate, 'video' => $video];
         }
-
-        if($request -> hasFile('image')){
-            $image = $request -> file('image');
-            $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
-            $uploadPath = 'images/articles/blocks'; //TODO: Set Upload Path
-            $isUploaded = $image->move(public_path($uploadPath), $imageName); //TODO: Store File in Public Directory
-            $storeDate  = [...$storeDate, 'image' => $imageName];
-            if(!$isUploaded) return redirect() -> back() -> with('warning', 'სურათის ატვირთვა ვერ მოხერხდა, სცადეთ დავიდან');
+        if($request -> filled('image')){
+            $image = $data['image'];
+            $storeDate  = [...$storeDate, 'image' => $image];
         }
+
+//        if($request -> hasFile('image')){
+//            $image = $request -> file('image');
+//            $imageName = uniqid() . '-' . time() .'.'. $image -> extension(); // TODO: Generate new File Name
+//            $uploadPath = 'images/articles/blocks'; //TODO: Set Upload Path
+//            $isUploaded = $image->move(public_path($uploadPath), $imageName); //TODO: Store File in Public Directory
+//            $storeDate  = [...$storeDate, 'image' => $imageName];
+//            if(!$isUploaded) return redirect() -> back() -> with('warning', 'სურათის ატვირთვა ვერ მოხერხდა, სცადეთ დავიდან');
+//        }
         $block -> update($storeDate);
         return redirect() -> back() -> with('success', 'სტატიის სექცია განახლდა წარმატებით');
 
