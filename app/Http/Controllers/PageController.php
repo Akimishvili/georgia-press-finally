@@ -58,9 +58,6 @@ class PageController extends Controller
         $youthCategory = $categories -> first(fn($category) => $category -> id == 8);
         $youth = $articles->where('visibility', '1')->filter(fn($article) => $article->categories->contains('id', $youthCategory -> id));
 
-        //TODO: culture category with articles
-        $cultureCategory = $categories -> first(fn($category) => $category -> id == 9);
-        $culture = $articles->where('visibility', '1')->filter(fn($article) => $article->categories->contains('id', $cultureCategory -> id));
 
         return view('pages.home',[
             'language' => App::getLocale(),
@@ -81,8 +78,6 @@ class PageController extends Controller
             'tourism' => $tourism,
             'youthCategory' => $youthCategory,
             'youth' => $youth,
-            'cultureCategory' => $cultureCategory,
-            'culture' => $culture,
             'blocks' => Block::whereNotNull('video')->with('article')->get()
         ]);
     }
