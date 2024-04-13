@@ -72,7 +72,7 @@ class ArticleController extends Controller
         return view('pages.view-more', [
             'language' => App::getLocale(),
             'article' => $article -> load('blocks', 'docs', 'authors'),
-            'lasts' => Article::orderBy('id', 'desc')->take(3)->get(),
+            'lasts' => Article::orderBy('id', 'desc')->where('visibility', '1')->take(3)->get(),
             'categories' => Category::all(),
             'author' => $article -> authors() -> first()
         ]);

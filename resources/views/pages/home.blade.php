@@ -22,6 +22,7 @@
     @include('partials.animal-category')
     @include('partials.tourism-category')
     @include('partials.youth-category')
+    @include('partials.culture-category')
     @include('partials.video-category')
 @endsection
 

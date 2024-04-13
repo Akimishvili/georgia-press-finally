@@ -6,7 +6,7 @@
         <div class="col-sm-8">
             <div class="card-body">
                 <h5 class="card-title truncate" data-language="{{$language}}">{{ $item -> title -> $language }}</h5>
-                <div class="card-text line-clamp" data-language="{{$language}}">{!! $item -> description -> $language !!}</div>
+                <p class="card-text line-clamp" data-language="{{$language}}">{!!  Str::substr( strip_tags($article -> description -> $language), 0, 150) !!}</p>
             </div>
         </div>
     </div>
