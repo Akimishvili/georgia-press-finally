@@ -59,7 +59,7 @@ class PageController extends Controller
         $youth = $articles->where('visibility', '1')->filter(fn($article) => $article->categories->contains('id', $youthCategory -> id));
 
         //TODO: culture category with articles
-        $cultureCategory = $categories -> first(fn($category) => $category -> id == 10);
+        $cultureCategory = $categories -> first(fn($category) => $category -> id == 9);
         $culture = $articles->filter(fn($article) => $article->categories->contains('id', $cultureCategory -> id));
 
         return view('pages.home',[
