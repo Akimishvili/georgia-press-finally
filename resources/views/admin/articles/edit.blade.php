@@ -310,7 +310,7 @@
                 <!-- tab ru-->
             </div>
             <div class="mb-3">
-                <input type="url" class="form-control"  name="image"  placeholder="image url" required/>
+                <input type="url" class="form-control"  name="image"  placeholder="image url" />
             </div>
             <div class="mb-3">
                 <input type="url" class="form-control"  name="video" placeholder="ვიდეო (EMBED URL)"/>

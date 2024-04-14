@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     @else
-                        <input type="url" class="form-control"  name="image"  placeholder="image url" required/>
+                        <input type="url" class="form-control"  name="image"  placeholder="image url" />
                     @endif
                 </div>
                 <div class="mb-3">
