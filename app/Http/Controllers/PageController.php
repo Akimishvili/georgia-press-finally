@@ -60,7 +60,7 @@ class PageController extends Controller
 
         //TODO: culture category with articles
         $cultureCategory = $categories -> first(fn($category) => $category -> id == 9);
-        $culture = $articles->filter(fn($article) => $article->categories->contains('id', $cultureCategory -> id));
+        $culture = $articles->where('visibility', '1')->filter(fn($article) => $article->categories->contains('id', $cultureCategory -> id));
 
         return view('pages.home',[
             'language' => App::getLocale(),
