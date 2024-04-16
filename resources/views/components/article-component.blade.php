@@ -11,12 +11,12 @@
                 @endforeach
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body d-flex flex-column justify-content-between">
             <a class="d-block text-decoration-none" href="{{ route('articles.show',['language' => app() -> getLocale(),'article' => $article]) }}">
                 <h5 class="article-card-title truncate fs-4 text-black" data-language="{{$language}}">{{ $article -> title -> $language }}</h5>
             </a>
             <p class="card-text line-clamp" data-language="{{$language}}">{!!  Str::substr( strip_tags($article -> description -> $language), 0, 150) !!}</p>
-            <a href="{{ route('articles.show',['language' => app() -> getLocale(),'article' => $article]) }}" class="btn bg-light-blue text-white more float-end mt-2" data-language="{{$language}}">{{__('static.page.more')}}</a>
+            <a href="{{ route('articles.show',['language' => app() -> getLocale(),'article' => $article]) }}" class="btn bg-light-blue text-white more align-self-end mt-2" data-language="{{$language}}">{{__('static.page.more')}}</a>
         </div>
 </div>
 

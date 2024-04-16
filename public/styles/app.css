@@ -68,6 +68,7 @@
 }
 .article-card{
     border-color: hsla(var(--light-blue-hue), var(--light-blue-saturation), var(--light-blue-lightness), var(--light-blue-alfa));
+    height: 100%;
 }
 .article-card-header{
     border-bottom-color: hsla(var(--light-blue-hue), var(--light-blue-saturation), var(--light-blue-lightness), var(--light-blue-alfa));;
