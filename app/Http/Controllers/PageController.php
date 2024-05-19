@@ -9,12 +9,23 @@ use Illuminate\Support\Facades\App;
 use App\Models\Article;
 use App\Models\Block;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 
 class PageController extends Controller
 {
     public function home(Request $request)
     {
+
+        return ['articles' => Article::all(),
+            'categories' => Category::all(),
+            'authors' => Author::all(),
+            'blocks' => Block::all(),
+            'sections' => Section::all(),
+            'category_article' => DB::table('category_article')->get(),
+            'author_article' => DB::table('author_article')->get(),
+        ];
+
         $allArticles = Article::where('visibility', '1') -> with('categories') -> orderBy('date', 'DESC')->paginate(9);
         if($request -> filled('search')){
             $allArticles = Article::where('title', 'like', '%'.$request -> search.'%')->
